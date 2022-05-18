@@ -1,0 +1,12 @@
+class Solution:
+    def subarraysDivByK(self, nums: List[int], k: int) -> int:
+        count=[0]*k
+        sum=0
+        for x in nums:
+            sum+=x%k
+            count[sum%k]+=1
+        result=count[0]
+        for c in count:
+            result+=(c*(c-1))//2
+        return result 
+        
